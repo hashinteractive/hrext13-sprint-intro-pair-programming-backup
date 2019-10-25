@@ -11,3 +11,9 @@ Desired output:
 //Navigator: ENTER_NAME
 //Driver: ENTER_NAME
 //code here
+
+const findUniqueNum = (arr) => {
+  return arr.filter(num => arr.indexOf(num) === arr.lastIndexOf(num))[0]
+}
+
+console.log(findUniqueNum([1,2,2,4,4]))

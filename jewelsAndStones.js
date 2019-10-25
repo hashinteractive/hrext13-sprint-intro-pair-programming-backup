@@ -20,3 +20,11 @@ The characters in J are distinct.
 // Navigator: ENTER_NAME
 // Driver: ENTER_NAME
 // your code here
+
+
+const findNumJewels = (stones, jewels) => {
+  const stonesArr = [...stones]
+  return stonesArr.filter(stone => jewels.includes(stone)).length
+}
+
+console.log(findNumJewels("ZZ", "z"))
