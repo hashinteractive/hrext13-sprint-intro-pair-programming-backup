@@ -19,21 +19,16 @@ You may assume the input string will only contain letters of alphabet.
 
 const wordsInSingleRow = (arr) => {
   //American keyboard rows
+  const rows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"]
+  //lets make sure all words are lowercase
   let words = arr.map(w => w.toLowerCase())
 
-  function allLettersInRow(word){
-    const rows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"]
-    const letters = [...word]
-    
-    rows.forEach(row => {
-      const filtered = letters.filter(l => row.includes(l))
-
-      if(letters.length === filtered.length) return true
-    })
-    return false
-  }
-
-  return words.filter(allLettersInRow)
+  //alright alright alright
+  //we're going to filter words iterating over every word
+  //returning truthy value from rows.some() (aka "any row") and iterating over rows 
+  //checking if every letter in word aka [...word] is included in the row we're checking
+  //ie. the row "asdfghjkl" would return true for every letter in "alaska" ["a", "l", "a", "s", "k", "a"] being included in the row "asdfghjkl"
+  return words.filter(word => rows.some(row => [...word].every(l => row.includes(l))))
 }
 
 console.log(wordsInSingleRow(["Hello", "Alaska", "Dad", "Peace"]))
